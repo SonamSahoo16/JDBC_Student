@@ -1,0 +1,5 @@
+package com.sonam.spring_jpa.model;
+
+public class Adhaar {
+
+}

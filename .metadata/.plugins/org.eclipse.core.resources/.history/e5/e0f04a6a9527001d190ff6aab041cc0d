@@ -1,0 +1,5 @@
+package com.sonam.mindfire.repository;
+
+public interface EmployeeRepository {
+
+}

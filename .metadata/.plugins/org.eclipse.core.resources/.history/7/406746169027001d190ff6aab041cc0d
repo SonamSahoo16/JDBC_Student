@@ -1,0 +1,80 @@
+package com.sonam.spring_jpa.model;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity			//annotations
+
+@Table(name = "adhaar_card")
+
+public class Adhaar {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE) //this makes sure that the id is in proper sequence
+	private long id;
+	
+	private String name;
+	
+	private String address;
+	
+	private Date dob;
+	
+	private long cardNum;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	public long getCardNum() {
+		return cardNum;
+	}
+
+	public void setCardNum(long cardNum) {
+		this.cardNum = cardNum;
+	}
+
+	public Adhaar(long id, String name, String address, Date dob, long cardNum) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.address = address;
+		this.dob = dob;
+		this.cardNum = cardNum;
+	}
+	
+	
+	
+}

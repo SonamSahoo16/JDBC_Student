@@ -1,0 +1,5 @@
+package com.sonam.spring_jpa.controller;
+
+public class AdhaarController {
+
+}

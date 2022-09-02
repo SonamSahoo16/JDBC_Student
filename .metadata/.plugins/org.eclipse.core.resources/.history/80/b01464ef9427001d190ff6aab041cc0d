@@ -1,0 +1,5 @@
+package com.sonam.mindfire.model;
+
+public class Employee {
+
+}

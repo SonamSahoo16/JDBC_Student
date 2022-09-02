@@ -1,0 +1,31 @@
+package com.sonam.jdbc;
+
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class Adhaar 
+{
+	void create() throws SQLException
+	{
+		String createStatement = "INSERT INTO users" +
+		        "  (id, name, dob, address, card_num) VALUES " +
+		        " (?, ?, ?, ?, ?);";
+		Connection connection = DriverManager
+	            .getConnection("jdbc:mysql://localhost:3306/my_db?useSSL=false", "root", "admin");
+		PreparedStatement pps = connection.prepareStatement(createStatement);
+		pps.setInt(1,1);
+		pps.setString(2,"Sonam");
+		pps.setDate(3,new Date(1999, 05, 16));
+		pps.setString(4,"Plot 54, Rasulgarh");
+		pps.setLong(5, 703979);
+		
+	}
+	void read()
+	{}
+	void update() {}
+	void delete() {}
+	
+}

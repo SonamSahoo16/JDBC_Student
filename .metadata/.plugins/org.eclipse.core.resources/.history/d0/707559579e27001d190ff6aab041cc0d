@@ -1,0 +1,53 @@
+package com.sonam.mindfire.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sonam.mindfire.model.Employee;
+import com.sonam.mindfire.repository.EmployeeRepository;
+
+@Service
+
+public class EmployeeService {
+	
+	@Autowired
+	private EmployeeRepository empRepo;
+
+	public Employee createUser(Employee employee) {
+		
+		return empRepo.save(employee);
+	}
+
+	public List<Employee> fetchAll() {
+		List<Employee> employees = empRepo.findAll();
+		return employees;
+	}
+
+	public Employee updateUser(Employee employee) {
+		Employee existingEmployee = empRepo.findById(employee.getId()).get();
+		
+		existingEmployee.setEmpId(employee.getEmpId());
+		existingEmployee.setName(employee.getName());
+		existingEmployee.setDepartment(employee.getDepartment());
+		existingEmployee.setDesignation(employee.getDesignation());
+		
+		return empRepo.save(existingEmployee);
+	}
+
+	public boolean deleteUser(Long id) {
+		Employee existingEmployee = empRepo.findById(id).get();
+		
+		empRepo.delete(existingEmployee);
+		Optional<Employee> empOptional = empRepo.findById(id);
+		
+		
+		if(empOptional.isPresent())
+			return false;
+		else
+			return true;
+	}
+
+}

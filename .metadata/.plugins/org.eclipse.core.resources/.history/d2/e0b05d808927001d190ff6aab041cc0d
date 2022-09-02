@@ -1,0 +1,27 @@
+package com.sonam.spring_jpa.model;
+
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity			//annotations
+
+@Table(name = "adhaar_card")
+@Getter
+@Setter 
+public class Adhaar {
+	
+	@Id
+	@GenerationValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	private String name, address;
+	private Date dob;
+	private long card_num;
+	
+}

@@ -1,0 +1,7 @@
+package com.sonam.spring_jpa.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AdhaarRepository extends JpaRepository<Adhaar, Long> {
+
+}

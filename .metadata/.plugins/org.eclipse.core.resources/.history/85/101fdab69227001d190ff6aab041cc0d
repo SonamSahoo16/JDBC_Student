@@ -1,0 +1,42 @@
+package com.sonam.spring_jpa.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.sonam.spring_jpa.model.Adhaar;
+import com.sonam.spring_jpa.service.AdhaarService;
+
+
+@RestController
+@RequestMapping("/adhaar")
+public class AdhaarController {
+
+	@Autowired
+	private AdhaarService adhaarService;
+	
+	@PostMapping("/create")
+	public Adhaar create(@RequestBody Adhaar adhaar ) {
+		
+		return adhaarService.createUser(adhaar);
+	}
+	
+	@GetMapping("/all")
+	public List<Adhaar> fetchAll()
+	{
+		return adhaarService.fetchAll();	
+	}
+	
+	@PutMapping("/update")
+	public Adhaar update(@RequestBody Adhaar adhaar) 
+	{
+		return adhaarService.updateUser(adhaar);
+		
+	}
+}

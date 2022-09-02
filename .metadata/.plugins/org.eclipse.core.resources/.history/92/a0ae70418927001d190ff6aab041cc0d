@@ -1,0 +1,22 @@
+package com.sonam.spring_jpa.service;
+
+import org.springframework.stereotype.Service;
+
+import com.sonam.spring_jpa.model.Adhaar;
+import com.sonam.spring_jpa.repository.AdhaarRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class AdhaarService {
+
+	private final AdhaarRepository adhaarRepository;
+	
+	private Adhaar createUser(Adhaar adhaar) {
+		
+	return	adhaarRepository.save(adhaar);
+		s
+	}
+	
+}

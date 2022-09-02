@@ -1,0 +1,47 @@
+package com.sonam.spring_jpa.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.sonam.spring_jpa.model.Adhaar;
+import com.sonam.spring_jpa.repository.AdhaarRepository;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class AdhaarService {
+
+	@Autowired
+	private AdhaarRepository adhaarRepository;
+	
+	public Adhaar createUser(Adhaar adhaar) {
+		
+	return	adhaarRepository.save(adhaar);
+		
+	}
+
+	public List<Adhaar> fetchAll() {
+		// TODO Auto-generated method stub
+		List<Adhaar> adhaars = adhaarRepository.findAll();
+		return adhaars;
+	}
+
+	public Adhaar updateUser(Adhaar adhaar) {
+		Adhaar existingAdhaar = adhaarRepository.findById(adhaar.getId()).get();
+		
+		existingAdhaar.setAddress(adhaar.getAddress());
+		existingAdhaar.setCardNum(adhaar.getCardNum());
+		existingAdhaar.setDob(adhaar.getDob());
+		existingAdhaar.setName(adhaar.getName());
+		
+		adhaarRepository.save(existingAdhaar);
+		
+		
+		
+		return null;
+	}
+	
+}
